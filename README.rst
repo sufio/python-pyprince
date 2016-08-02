@@ -19,6 +19,9 @@ If option is without value use None or False:
     p.from_string("Hello")
     p.from_file("./input.html")
 
+    # pass a list with multiple files
+    p.from_file(["./input1.html", "./input2.html"])
+
     # Override options
 
     extra_options = {
