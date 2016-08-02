@@ -1,7 +1,7 @@
 Usage
 -----
 
-You can specify all Prince XML `options <http://www.princexml.com/doc/command-line/#idp47329832745904>`_ You can drop '--' in option name.
+You can specify all Prince XML `options <http://www.princexml.com/doc/command-line/#idp47329832745904>`_. You can drop '--' in option name.
 If option is without value use None or False:
 
 .. code-block:: python
