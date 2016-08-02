@@ -51,6 +51,7 @@ You can read it to a variable
         pdf = p.from_file("./input.html", options)
 
 
+This library is maintained by `Sufio <https://sufio.com?-h>`_.
     
 
 
