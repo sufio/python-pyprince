@@ -17,22 +17,25 @@ PRINCE_PATH = which("prince")
 
 class Prince(object):
 
-    def __init__(self, options):
+    def __init__(self, options=None):
 
         if not exists(PRINCE_PATH):
             raise OSError("Path to prince executable does not exists")
 
-        if options:
-            self.options = self._prepare_options(options)
-        else:
-            # if output is not specified use standard output
-            self.options = {"output": "-"}
+        self.options = self._prepare_options(options)
+
+        # if output is not specified use standard output by default
+        if "--output" not in self.options:
+            self.options["--output"] = "-"
 
     def _prepare_options(self, options):
         """Make options usable for command line
         """
 
         _options = {}
+
+        if not options:
+            return _options
 
         for key in options:
             normalized_key = key
