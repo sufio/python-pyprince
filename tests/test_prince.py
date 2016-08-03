@@ -32,14 +32,15 @@ class TestPrince(object):
             assert arg.startswith("--")
 
     def test_command_args(self):
-            options = {
-                "debug": "",
-                "page-size": "A3",
-                "style": ["1.css", "2.css"]
-            }
-            p = Prince(options)
-            commandline_args = p._command_args([], "input html", p.options)
-            assert len(commandline_args) == 9
+        options = {
+            "debug": "",
+            "page-size": "A3",
+            "style": ["1.css", "2.css"],
+            "output": "-"
+        }
+        p = Prince(options)
+        commandline_args = p._command_args([], "input html", p.options)
+        assert len(commandline_args) == 11 
 
     def test_from_string(self, output_html_file):
         options = {"output": output_html_file}
@@ -47,8 +48,12 @@ class TestPrince(object):
         res = p.from_string("Input html")
         assert res == True
 
-    def test_from_file(self, input_html_file):
-        options = {"output": input_html_file}
+    def test_from_file(self, output_html_file, input_html_file):
+        options = {"output": output_html_file}
         p = Prince(options)
         res = p.from_file(input_html_file)
         assert res == True
+
+    def test_output(self):
+        p = Prince()
+        assert p.options["--output"] == "-"
