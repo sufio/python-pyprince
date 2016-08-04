@@ -37,7 +37,7 @@ You can read it to a variable
 
 .. code-block:: python
 
-        # From pyprince documentation:
+        # From Prince documentation:
         # The output file name can be specified on the command line using
         # the --output command line option.
         # An output filename consisting of a single hyphen "-" will
