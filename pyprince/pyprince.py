@@ -107,6 +107,11 @@ class Prince(object):
         )
         stdout, stderr = result.communicate(input=input_data)
 
+        if result.returncode != 0:
+            # not ok
+            raise Exception(stderr)
+
+        # ok
         if self._is_stdout(options):
             return stdout
 
