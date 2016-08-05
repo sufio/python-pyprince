@@ -14,6 +14,8 @@ Prince XML `installation guide <http://www.princexml.com/doc/installing/>`_.
 python-pyprince
 ~~~~~~~~~~~~~~~
 
+.. code-block::
+
     $ pip install git+https://github.com/sufio/python-pyprince.git
 
 Usage
