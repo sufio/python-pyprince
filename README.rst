@@ -1,3 +1,21 @@
+python-pyprince
+===============
+
+A simple Python wrapper for the PrinceXML PDF generation library
+
+Installation
+------------
+
+Prince XML
+~~~~~~~~~~
+
+Prince XML `installation guide <http://www.princexml.com/doc/installing/>`_.
+
+python-pyprince
+~~~~~~~~~~~~~~~
+
+    $ pip install git+https://github.com/sufio/python-pyprince.git
+
 Usage
 -----
 
@@ -52,6 +70,3 @@ You can read it to a variable
 
 
 This library is maintained by `Sufio <https://sufio.com?-h>`_.
-    
-
-
