@@ -57,3 +57,9 @@ class TestPrince(object):
     def test_output(self):
         p = Prince()
         assert p.options["--output"] == "-"
+
+    def test_error_handler(self):
+        p = Prince()
+        with pytest.raises(Exception):
+            p.from_file("./does_not_exist.html")
+        
