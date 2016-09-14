@@ -1,6 +1,9 @@
 python-pyprince
 ===============
 
+.. image:: https://img.shields.io/pypi/v/pyprince.svg
+    :target: https://pypi.python.org/pypi/pyprince/
+
 A simple Python wrapper for the PrinceXML PDF generation library
 
 Installation
