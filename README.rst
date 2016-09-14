@@ -21,6 +21,14 @@ python-pyprince
 Usage
 -----
 
+Prince binary will be autodetected by default, you can override it using the `prince_bin` param:
+
+.. code-block:: python
+
+    import pyprince
+
+    p = pyprince.Prince(prince_bin='/usr/local/bin/prince')
+
 You can specify all Prince XML `options <http://www.princexml.com/doc/command-line/#idp47329832745904>`_. You can drop '--' in option name.
 If option is without value use None or False:
 
@@ -34,7 +42,7 @@ If option is without value use None or False:
         "style": "./styles.css"
     }
 
-    p = pyprince.Prince(options)
+    p = pyprince.Prince(options=options)
 
     p.from_string("Hello")
     p.from_file("./input.html")
@@ -53,7 +61,7 @@ If option is without value use None or False:
     p.from_file("./input.html", extra_options)
 
 
-You can read it to a variable
+You can read it to a variable:
 
 .. code-block:: python
 

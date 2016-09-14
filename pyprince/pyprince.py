@@ -1,27 +1,26 @@
 # -*- coding: utf-8 -*-
 
-import subprocess
 import copy
+import subprocess
 from os.path import exists
 
 try:
     from shutil import which
 except ImportError:
     from distutils.spawn import find_executable
+
     which = find_executable
 
 
-# path to prince
-PRINCE_PATH = which("prince")
-
-
 class Prince(object):
+    def __init__(self, options=None, prince_bin=None):
+        if not prince_bin:
+            prince_bin = which('prince')
 
-    def __init__(self, options=None):
-
-        if not exists(PRINCE_PATH):
+        if not prince_bin or not exists(prince_bin):
             raise OSError("Path to prince executable does not exists")
 
+        self.prince_bin = prince_bin
         self.options = self._prepare_options(options)
 
         # if output is not specified use standard output by default
@@ -29,7 +28,8 @@ class Prince(object):
             self.options["--output"] = "-"
 
     def _prepare_options(self, options):
-        """Make options usable for command line
+        """
+        Make options usable for command line
         """
 
         _options = {}
@@ -53,8 +53,7 @@ class Prince(object):
         """
         Prepare command line arguments
         """
-
-        args = [PRINCE_PATH]
+        args = [self.prince_bin]
 
         # Specifying input
         # The command line must contain the name of the input file to process.
@@ -92,7 +91,6 @@ class Prince(object):
         return options["--output"] == "-"
 
     def _to_pdf(self, files=None, input_data=None, extra_options=None):
-
         options = copy.copy(self.options)
         if extra_options:
             options.update(self._prepare_options(extra_options))

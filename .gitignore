@@ -2,10 +2,17 @@
 *.pyc
 
 # Setuptools distribution folder.
-/dist/
+dist/
+build/
 
 # Python egg metadata, regenerated from source files by setuptools.
 /*.egg-info
 /*.egg
 
-/.cache/
+.cache/
+
+# pycharm
+*.idea/
+
+# fixtures
+tests/fixtures/*.pdf
