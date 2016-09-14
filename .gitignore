@@ -1,3 +1,8 @@
+# os
+.DS_Store
+Thumbs.db
+Desktop.ini
+
 # Compiled python modules.
 *.pyc
 

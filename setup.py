@@ -3,6 +3,8 @@ from setuptools import setup
 setup(
     name="pyprince",
     version="0.2",
+    license="MIT",
+    url="https://github.com/sufio/python-pyprince",
     description="Prince xml python wrapper for converting HTML to PDF",
     author="Sufio.com",
     author_email="sufio@sufio.com",
