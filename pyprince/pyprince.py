@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import copy
+import logging
 import subprocess
 from os.path import exists
 
@@ -10,6 +11,8 @@ except ImportError:
     from distutils.spawn import find_executable
 
     which = find_executable
+
+logger = logging.getLogger('pyprince')
 
 
 class Prince(object):
@@ -96,6 +99,8 @@ class Prince(object):
             options.update(self._prepare_options(extra_options))
 
         args = self._command_args(files, input_data, options)
+
+        logger.debug(' '.join(args))
 
         result = subprocess.Popen(
             args,
