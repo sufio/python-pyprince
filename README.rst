@@ -19,7 +19,7 @@ python-pyprince
 
 .. code-block::
 
-    $ pip install git+https://github.com/sufio/python-pyprince.git
+    $ pip install pyprince
 
 Usage
 -----
