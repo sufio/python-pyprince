@@ -45,7 +45,7 @@ If option is without value use None or False:
         "style": "./styles.css"
     }
 
-    p = pyprince.Prince(prince_bin='/usr/local/bin/prince'options=options)
+    p = pyprince.Prince(prince_bin='/usr/local/bin/prince', options=options)
 
     p.from_string("Hello")
     p.from_file("./input.html")
