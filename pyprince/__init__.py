@@ -3,4 +3,4 @@
 Prince xml python wrapper for converting HTML to PDF
 """
 
-from .pyprince import Prince
+from .pyprince import Prince  # noqa

@@ -3,26 +3,12 @@
 import copy
 import logging
 import subprocess
-from os.path import exists
-
-try:
-    from shutil import which
-except ImportError:
-    from distutils.spawn import find_executable
-
-    which = find_executable
 
 logger = logging.getLogger('pyprince')
 
 
 class Prince(object):
-    def __init__(self, options=None, prince_bin=None):
-        if not prince_bin:
-            prince_bin = which('prince')
-
-        if not prince_bin or not exists(prince_bin):
-            raise OSError("Path to prince executable does not exists")
-
+    def __init__(self, prince_bin, options=None):
         self.prince_bin = prince_bin
         self.options = self._prepare_options(options)
 
@@ -34,7 +20,6 @@ class Prince(object):
         """
         Make options usable for command line
         """
-
         _options = {}
 
         if not options:
