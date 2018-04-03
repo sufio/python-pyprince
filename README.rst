@@ -24,7 +24,7 @@ python-pyprince
 Usage
 -----
 
-Prince binary will be autodetected by default, you can override it using the `prince_bin` param:
+Path to prince binary must be set using the `prince_bin` param:
 
 .. code-block:: python
 
