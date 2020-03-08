@@ -44,10 +44,16 @@ class TestPrince(object):
         commandline_args = p._command_args([], "input html", p.options)
         assert len(commandline_args) == 11
 
-    def test_from_string(self, prince_bin, output_html_file):
+    def test_from_string_unicode(self, prince_bin, output_html_file):
         options = {"output": output_html_file}
         p = Prince(prince_bin=prince_bin, options=options)
-        res = p.from_string("Input html")
+        res = p.from_string(u"Input html")
+        assert res is True
+
+    def test_from_string_bytes(self, prince_bin, output_html_file):
+        options = {"output": output_html_file}
+        p = Prince(prince_bin=prince_bin, options=options)
+        res = p.from_string(b"Input html")
         assert res is True
 
     def test_from_file(self, prince_bin, output_html_file, input_html_file):

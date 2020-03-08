@@ -93,6 +93,8 @@ class Prince(object):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
+        if input_data and not isinstance(input_data, bytes):
+            input_data = input_data.encode("utf-8")
         stdout, stderr = result.communicate(input=input_data)
 
         if result.returncode != 0:

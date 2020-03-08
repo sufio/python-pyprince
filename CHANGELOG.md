@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5
+
+- Support Python >= 3.6.
+
 ## 0.4
 
 - Make prince_bin arg required, do not validate if binary exists.

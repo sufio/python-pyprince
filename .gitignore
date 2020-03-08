@@ -19,5 +19,6 @@ build/
 # pycharm
 *.idea/
 
-# fixtures
+# tests
+.tox/
 tests/fixtures/*.pdf
