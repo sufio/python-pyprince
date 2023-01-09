@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.1
+
+- Fix broken args
+
 ## 0.6
 
 - Support timeout arg in subprocess
