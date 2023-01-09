@@ -78,7 +78,7 @@ class Prince(object):
         # cause Prince to write to the standard output stream.
         return options["--output"] == "-"
 
-    def _to_pdf(self, files=None, input_data=None, extra_options=None):
+    def _to_pdf(self, files=None, input_data=None, extra_options=None, timeout=None):
         options = copy.copy(self.options)
         if extra_options:
             options.update(self._prepare_options(extra_options))
@@ -95,7 +95,14 @@ class Prince(object):
         )
         if input_data and not isinstance(input_data, bytes):
             input_data = input_data.encode("utf-8")
-        stdout, stderr = result.communicate(input=input_data)
+
+        try:
+            stdout, stderr = result.communicate(input=input_data, timeout=timeout)
+        except subprocess.TimeoutExpired as e:
+            # proper cleanup and raise exception
+            result.kill()
+            _, _ = result.communicate(input=input_data, timeout=timeout)
+            raise e
 
         if result.returncode != 0:
             # not ok
@@ -108,10 +115,10 @@ class Prince(object):
         return True
 
     # public API
-    def from_string(self, input_data, options=None):
-        return self._to_pdf(input_data=input_data, extra_options=options)
+    def from_string(self, input_data, options=None, timeout=None):
+        return self._to_pdf(input_data=input_data, extra_options=options, timeout=timeout)
 
-    def from_file(self, files, options=None):
+    def from_file(self, files, options=None, timeout=None):
         if not isinstance(files, list):
             files = [files]
-        return self._to_pdf(files=files, extra_options=options)
+        return self._to_pdf(files=files, extra_options=options, timeout=timeout)

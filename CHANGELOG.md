@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6
+
+- Support timeout arg in subprocess
+
 ## 0.5
 
 - Support Python >= 3.6.
