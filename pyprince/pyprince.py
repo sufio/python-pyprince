@@ -101,7 +101,7 @@ class Prince(object):
         except subprocess.TimeoutExpired as e:
             # proper cleanup and raise exception
             result.kill()
-            _, _ = result.communicate(input=input_data, timeout=timeout)
+            _, _ = result.communicate()
             raise e
 
         if result.returncode != 0:
